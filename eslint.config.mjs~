@@ -96,7 +96,7 @@ export default [
           ignoreDefaultValues: true,
         },
       ],
-      'no-relative-import-paths/no-relative-import-paths': 'off',
+      'no-relative-import-paths/no-relative-import-paths': ['warn', { allowSameFolder: true, rootDir: 'src' }],
       'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.ts', '.tsx', '.svg', '.webp', '.json'] }],
       'react/jsx-indent': 'off',
       'react/jsx-indent-props': [2, 2],

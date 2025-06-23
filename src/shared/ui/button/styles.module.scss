@@ -1,0 +1,58 @@
+.button {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  text-transform: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease-in-out;
+
+  &_blue {
+    &__primary {
+      color: #fff;
+      background-color: #0077B9;
+      border: none;
+
+      &:hover {
+        background-color: rgba(0, 119, 185, 0.75);
+      }
+
+      &:active {
+        background-color: rgba(0, 119, 185, 0.9);
+      }
+    }
+    
+    &__secondary {
+      background-color: transparent;
+      color: #0077B9;
+      border: 1px solid #0077B9;
+    }
+  }
+    
+  
+  &_size {
+    &__large {
+      padding: 1.25rem 2rem;
+      font-size: 20px;
+      border-radius: 1rem;
+    }
+
+    &__medium {
+      padding: 0.75rem 1rem;
+      font-size: 20px;
+    }
+
+    &__small {
+      padding: 0.5rem 0.75rem;
+      font-size: 16px;
+    }
+  }
+
+  &:disabled {
+    background-color: #E5E5E5;
+    cursor: not-allowed;
+  }
+}

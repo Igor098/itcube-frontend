@@ -1,0 +1,87 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  justify-items: center;
+  gap: 1rem;
+  background-color: #FFFFFF;
+  border: 1px solid #E5E5E5;
+  border-radius: 0.5rem;
+  margin: 2px;
+
+  &_size {
+    &__normal {
+      font-size: 1rem;
+      padding: 0.5rem 1rem 0.5rem 3rem;
+    }
+
+    &__large {
+      font-size: 1.25rem;
+      padding: 0.75rem 1rem 0.75rem 4rem;
+    }
+  }
+
+  &:has(input:focus) {
+    border-width: 3px;
+    margin: 0;
+
+    .left_icon, .right_icon {
+      path {
+        fill: #1C1C1C;
+      }
+    }
+  }
+
+  &:not(:has(input:focus)) {
+    .left_icon, .right_icon {
+      path {
+        fill: #B2B2B2;
+      }
+    }
+  }
+
+  &_error {
+    border-color: tomato;
+  }
+}
+
+.input {
+  background-color: transparent;
+  width: 100%;
+  color: #1C1C1C;
+  outline: none;
+
+  &::placeholder {
+    color: #B2B2B2;
+  }
+}
+
+.left_icon {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+
+  &_size {
+    &__normal {
+      width: 1rem;
+      height: 1rem;
+    }
+
+    &__large {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+}
+
+.right_icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%)
+}
+
+.error {
+  color: tomato;
+  font-size: 0.75rem;
+}
