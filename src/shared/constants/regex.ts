@@ -1,5 +1,5 @@
 export const regex = {
-  login: /^(?=.*[a-zA-Z])[a-zA-Z0-9_-]{3,36}$/,
+  username: /^(?=.*[a-zA-Z])[a-zA-Z0-9_-]{3,36}$/,
   email:
     /^(?!\.)[a-zA-Z0-9_%+-]+(?:\.[a-z0-9_%+-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z]{2,4}$/,
   password:

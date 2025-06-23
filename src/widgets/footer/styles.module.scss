@@ -1,0 +1,47 @@
+.footer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #0077B9;
+    padding: 3.25rem 0;
+    gap: 7.5rem;
+    color: #FFFFFF;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2.25rem;
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+.social {
+    display: flex;
+    gap: 1rem;
+
+    &_links {
+        display: flex;
+        gap: 0.625rem;
+    }
+}
+
+.site {
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 150%;
+}
+
+.copyright {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-weight: 400;
+}

@@ -1,4 +1,4 @@
-export type UserRole = 'admin' | 'teacher' | 'student';
+import { type TUserRole } from '@/shared/constants/types';
 
 export interface IUser {
   id: number;
@@ -7,7 +7,7 @@ export interface IUser {
   method: 'credentials' | 'google' | 'yandex';
   isVerified: boolean;
   isTwoFactorEnabled: boolean;
-  roles: UserRole[];
+  roles: TUserRole[];
 }
 
 export interface ILoginPayload {

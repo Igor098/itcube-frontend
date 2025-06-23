@@ -1,34 +1,55 @@
+import { type IAppRoute } from '@/shared/constants/types';
+
 export const ROUTES = {
   home: {
     path: '/',
-    route: '/',
-    name: 'Home Page',
+    name: 'Главная',
+    isPrivate: false,
   },
   login: {
     path: '/login',
-    route: '/login',
-    name: 'Login Page',
+    name: 'Вход',
+    isPrivate: false,
   },
   register: {
     path: '/register',
-    route: '/register',
-    name: 'Register Page',
+    name: 'Регистрация',
+    isPrivate: false,
   },
   management: {
     path: '/management',
-    route: '/management',
-    name: 'Management Page',
+    name: 'Управление',
+    isPrivate: true,
+    roles: ['admin'],
   },
   teacher: {
     path: '/teacher',
-    route: '/teacher',
-    name: 'Teacher Page',
+    name: 'Кабинет педагога',
+    isPrivate: true,
+    roles: ['teacher'],
   },
   profile: {
     path: '/profile',
-    route: '/profile',
-    name: 'Profile Page',
+    name: 'Профиль',
+    isPrivate: true,
   },
-};
+  programs: {
+    path: '/programs',
+    name: 'Направления',
+    isPrivate: false,
+  },
+  employees: {
+    path: '/employees',
+    name: 'Сотрудники',
+    isPrivate: false,
+  },
+  schedule: {
+    path: '/schedule',
+    name: 'Расписание',
+    isPrivate: false,
+  },
+} as const satisfies Record<string, IAppRoute>;
 
-export const PRIVATE_ROUTES = ['/management', '/teacher', '/profile'];
+export const PRIVATE_ROUTES: string[] = Object.values(ROUTES)
+  .filter((route) => route.isPrivate)
+  .map((route) => route.path);

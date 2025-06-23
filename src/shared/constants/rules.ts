@@ -6,9 +6,10 @@ export const rules = {
     required: true,
     message: messages.required,
   },
-  login: {
-    pattern: regex.login,
-    message: messages.notLogin,
+  username: {
+    pattern: regex.username,
+    message: messages.notUsername,
+    minLength: 3,
   },
   email: {
     pattern: regex.email,
@@ -19,12 +20,7 @@ export const rules = {
     message: messages.notPassword,
     minLength: 8,
   },
-  loginOrEmail: {
-    pattern: regex.loginOrEmail,
-    message: messages.loginOrEmail,
-  },
-  fullName: {
-    pattern: regex.fullName,
-    message: messages.fullName,
+  confirmPassword: {
+    message: messages.passwordsNotMatch,
   },
 };

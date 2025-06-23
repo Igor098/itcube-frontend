@@ -16,11 +16,11 @@ export default async function middleware(request: NextRequest) {
   const isPrivatePage = isMatchRoute(pathname);
 
   if (session && isAuthPage) {
-    return NextResponse.redirect(new URL(ROUTES.home.route, request.url));
+    return NextResponse.redirect(new URL(ROUTES.home.path, request.url));
   }
 
   if (isPrivatePage && !session) {
-    return NextResponse.redirect(new URL(ROUTES.login.route, request.url));
+    return NextResponse.redirect(new URL(ROUTES.login.path, request.url));
   }
 
   return NextResponse.next();
