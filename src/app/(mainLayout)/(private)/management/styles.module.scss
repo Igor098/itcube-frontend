@@ -1,0 +1,17 @@
+.container {
+  width: 100%;
+  padding: 0 1.5rem;
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex: 1;
+}
+
+.tabs {
+  flex: 0;
+  background-color: #F3F4F6;
+}
+
+.content {
+  flex: 1;
+}

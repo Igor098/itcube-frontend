@@ -1,9 +1,9 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from 'react';
 import { clsx } from 'clsx';
 
-import styles from './styles.module.scss';
+import { type TSize } from '@/shared/constants/types';
 
-type TSize = 'normal' | 'large';
+import styles from './styles.module.scss';
 
 interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   error?: string;

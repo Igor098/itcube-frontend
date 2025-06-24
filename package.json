@@ -13,6 +13,7 @@
     "@reduxjs/toolkit": "^2.8.2",
     "axios": "^1.10.0",
     "clsx": "^2.1.1",
+    "focus-trap": "^7.6.5",
     "next": "15.3.4",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",

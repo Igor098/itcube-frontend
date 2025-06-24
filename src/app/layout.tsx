@@ -1,3 +1,4 @@
+import { type ReactNode } from 'react';
 import type { Metadata } from 'next';
 import { Geist, Geist_Mono, Inter } from 'next/font/google';
 
@@ -7,7 +8,6 @@ import { Header } from '@/widgets/header';
 import { Providers } from './providers';
 
 import './globals.css';
-import { ReactNode } from 'react';
 
 const geistSans = Geist({
   variable: '--font-geist-sans',
@@ -19,7 +19,11 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 });
 
-const inter = Inter({ subsets: ['cyrillic'], weight: ['400', '500', '600'], variable: '--font-inter' });
+const inter = Inter({
+  subsets: ['cyrillic'],
+  weight: ['400', '500', '600'],
+  variable: '--font-inter',
+});
 
 export const metadata: Metadata = {
   title: {
@@ -40,6 +44,7 @@ export default function RootLayout({
         className={`${inter.variable} antialiased`}
         cz-shortcut-listen="true"
       >
+        <div id="modal-root" />
         <Providers>
           <div className="wrapper">{children}</div>
         </Providers>
