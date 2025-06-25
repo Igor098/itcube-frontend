@@ -2,7 +2,7 @@ import { useEffect, useMemo } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
 
 import { createGroupThunk } from '@/entities/group';
-import { type IGroupCreate } from '@/entities/group';
+import { type IGroupForm } from '@/entities/group';
 import { getAllProgramsThunk } from '@/entities/program';
 import { getAllSchoolYearsThunk } from '@/entities/school-year';
 import { getAllTeachersThunk } from '@/entities/teacher';
@@ -24,7 +24,14 @@ export function GroupCreateForm({ onCancel, onSuccess }: GroupCreateFormProps) {
   const { data: schoolYears } = useAppSelector((state) => state.schoolYears);
   const { data: programs } = useAppSelector((state) => state.programs);
 
-  const methods = useForm<IGroupCreate>();
+  const methods = useForm<IGroupForm>({
+    defaultValues: {
+      name: '',
+      teacherId: '',
+      programId: '',
+      schoolYearId: '',
+    },
+  });
   const {
     formState: { errors },
     handleSubmit,
@@ -65,7 +72,7 @@ export function GroupCreateForm({ onCancel, onSuccess }: GroupCreateFormProps) {
 
   console.log(teachers);
 
-  const onSubmit = async (data: IGroupCreate) => {
+  const onSubmit = async (data: IGroupForm) => {
     try {
       const payload = {
         ...data,

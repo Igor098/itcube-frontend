@@ -13,21 +13,19 @@ interface IProps extends InputHTMLAttributes<HTMLInputElement> {
   inputSize?: TSize;
 }
 
-const Input = forwardRef<HTMLInputElement, IProps>((props, ref) => {
-  const {
-    className,
-    error,
-    inputClassName,
-    inputSize,
-    leftIcon,
-    rightIcon,
-    value,
-    ...rest
-  } = props;
-
-  const finalValue = value ?? '';
-
-  return (
+const Input = forwardRef<HTMLInputElement, IProps>(
+  (
+    {
+      className,
+      error,
+      inputClassName,
+      inputSize = 'large',
+      leftIcon,
+      rightIcon,
+      ...rest
+    },
+    ref,
+  ) => (
     <>
       <div
         className={clsx(
@@ -47,12 +45,15 @@ const Input = forwardRef<HTMLInputElement, IProps>((props, ref) => {
             {leftIcon}
           </span>
         )}
+
         <input
           ref={ref}
           className={clsx(styles.input, inputClassName)}
-          value={finalValue}
+          // Ключевой момент: не передаём value, если оно undefined
+          {...(rest.value !== undefined ? { value: rest.value } : {})}
           {...rest}
         />
+
         {rightIcon && (
           <span
             className={clsx(
@@ -66,9 +67,8 @@ const Input = forwardRef<HTMLInputElement, IProps>((props, ref) => {
       </div>
       {error && <p className={styles.error}>{error}</p>}
     </>
-  );
-});
+  ),
+);
 
 Input.displayName = 'Input';
-
 export default Input;

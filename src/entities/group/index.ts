@@ -7,6 +7,7 @@ export { updateGroupThunk } from './model/thunks/updateGroupThunk';
 export type {
   IGroup,
   IGroupCreate,
+  IGroupForm,
   IGroupsSlice,
   IGroupUpdateRequest,
 } from './model/types';

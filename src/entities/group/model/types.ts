@@ -26,6 +26,14 @@ export interface IGroupCreate {
   teacherId: number;
 }
 
+export interface IGroupForm {
+  name: string;
+  isActive: boolean;
+  schoolYearId: string;
+  programId: string;
+  teacherId: string;
+}
+
 export interface IGroupUpdateRequest {
   id: number;
   data: IGroupCreate;
