@@ -4,7 +4,7 @@ import { getAllGroupsApi } from '../../api/getGroups';
 import type { IGroupFilter } from '../filter';
 
 export const getAllGroupsThunk = createAsyncThunk(
-  'auth/groups',
+  'admin/groups',
   async (params: IGroupFilter, { rejectWithValue }) => {
     try {
       return await getAllGroupsApi(params);

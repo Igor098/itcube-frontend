@@ -1,3 +1,4 @@
+import { type SelectHTMLAttributes } from 'react';
 import { clsx } from 'clsx';
 
 import { type TSize } from '@/shared/constants/types';
@@ -9,11 +10,13 @@ export interface IOption<T> {
   value: T;
 }
 
-interface ISelectProps<T> {
+interface ISelectProps<T>
+  extends Omit<SelectHTMLAttributes<HTMLSelectElement>, 'onChange' | 'value'> {
   options: IOption<T>[];
-  value: T;
   onChange: (value: T) => void;
+  value: T;
   selectSize: TSize;
+  placeholder?: string;
   className?: string;
 }
 
@@ -21,12 +24,14 @@ export default function Select<T>({
   className,
   onChange,
   options,
+  placeholder,
   selectSize,
   value,
+  ...rest
 }: ISelectProps<T>) {
   return (
     <select
-      value={String(value)}
+      value={value === undefined ? '' : String(value)}
       className={clsx(
         styles.select,
         styles[`select_size__${selectSize}`],
@@ -39,7 +44,13 @@ export default function Select<T>({
           onChange(matched.value);
         }
       }}
+      {...rest}
     >
+      {placeholder && (
+        <option value="" disabled hidden>
+          {placeholder}
+        </option>
+      )}
       {options.map((option) => (
         <option key={String(option.value)} value={String(option.value)}>
           {option.label}

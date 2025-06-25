@@ -18,6 +18,19 @@ export interface IGroup {
   actions: string;
 }
 
+export interface IGroupCreate {
+  name: string;
+  isActive: boolean;
+  schoolYearId: number;
+  programId: number;
+  teacherId: number;
+}
+
+export interface IGroupUpdateRequest {
+  id: number;
+  data: IGroupCreate;
+}
+
 export interface IGroupsSlice {
   data: IGroup[];
   isLoading: boolean;

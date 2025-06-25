@@ -2,12 +2,18 @@
 
 import { useEffect, useState } from 'react';
 
-import { type IGroup } from '@/entities/group';
-import { getAllGroupsThunk } from '@/entities/group';
+import {
+  deleteGroupThunk,
+  getAllGroupsThunk,
+  type IGroup,
+} from '@/entities/group';
 import { DataTable, type IColumn } from '@/entities/table';
+import { GroupCreateForm } from '@/features/group-create';
+import { GroupEditForm } from '@/features/group-edit';
 import { GroupFilters, useGroupFilters } from '@/features/group-filters';
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
-import { Modal } from '@/shared/ui/modal';
+import EntityDeleteModal from '@/shared/ui/entity-delete-modal';
+import Modal from '@/shared/ui/modal';
 
 export default function GroupsTable() {
   const dispatch = useAppDispatch();
@@ -17,6 +23,27 @@ export default function GroupsTable() {
     null,
   );
   const [selectedGroup, setSelectedGroup] = useState<IGroup | null>(null);
+
+  const handleCloseModal = () => {
+    setModalMode(null);
+    setSelectedGroup(null);
+  };
+
+  const handleCreateSuccess = async () => {
+    handleCloseModal();
+    await dispatch(getAllGroupsThunk(values)).unwrap();
+  };
+
+  const handleDeleteSuccess = async () => {
+    if (!selectedGroup) return;
+    try {
+      handleCloseModal();
+      await dispatch(deleteGroupThunk(Number(selectedGroup.id))).unwrap();
+      await dispatch(getAllGroupsThunk(values)).unwrap();
+    } catch (error) {
+      console.error('Ошибка при удалении:', error);
+    }
+  };
 
   const handleAdd = () => {
     setSelectedGroup(null);
@@ -65,27 +92,40 @@ export default function GroupsTable() {
 
   return (
     <>
-      <Modal
-        isOpen={modalMode !== null}
-        onClose={() => {
-          setModalMode(null);
-          setSelectedGroup(null);
-        }}
-        title={
-          modalMode === 'add'
-            ? 'Добавление группы'
-            : modalMode === 'edit'
-              ? 'Редактирование группы'
-              : 'Удаление группы'
-        }
-        footer={<div>Тут футер</div>}
-      >
-        <p>
-          {modalMode === 'delete'
-            ? 'Вы уверены, что хотите удалить группу?'
-            : 'Тут будет форма'}
-        </p>
-      </Modal>
+      {modalMode === 'add' && (
+        <Modal
+          isOpen={true}
+          onClose={handleCloseModal}
+          title="Добавление группы"
+        >
+          <GroupCreateForm
+            onCancel={handleCloseModal}
+            onSuccess={handleCreateSuccess}
+          />
+        </Modal>
+      )}
+      {modalMode === 'edit' && selectedGroup && (
+        <Modal
+          isOpen={true}
+          onClose={handleCloseModal}
+          title={`Редактирование группы «${selectedGroup.name}»`}
+        >
+          <GroupEditForm
+            selectedGroup={selectedGroup}
+            onCancel={handleCloseModal}
+            onSuccess={handleCreateSuccess}
+          />
+        </Modal>
+      )}
+      {modalMode === 'delete' && selectedGroup && (
+        <EntityDeleteModal
+          isOpen={modalMode === 'delete'}
+          onCancel={handleCloseModal}
+          entityName="группу"
+          onConfirm={handleDeleteSuccess}
+          entityLabel={`«${selectedGroup.name}»`}
+        />
+      )}
       <GroupFilters
         onAddClick={() => handleAdd()}
         search={search}

@@ -12,7 +12,7 @@ interface IModalProps {
   footer?: ReactNode;
 }
 
-export function Modal({
+export default function Modal({
   children,
   footer,
   isOpen,
