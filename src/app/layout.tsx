@@ -40,10 +40,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body
-        className={`${inter.variable} antialiased`}
-        cz-shortcut-listen="true"
-      >
+      <body className={`${inter.variable} antialiased`}>
         <div id="modal-root" />
         <Providers>
           <div className="wrapper">{children}</div>
