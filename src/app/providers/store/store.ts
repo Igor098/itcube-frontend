@@ -2,9 +2,9 @@ import { configureStore } from '@reduxjs/toolkit';
 
 import { groupsReducer } from '@/entities/group';
 import { programsReducer } from '@/entities/program';
+import { schoolYearsReducer } from '@/entities/school-year';
 import { teachersReducer } from '@/entities/teacher';
 import { authReducer } from '@/features/auth';
-import { schoolYearsReducer } from '@/entities/school-year';
 
 export const store = configureStore({
   reducer: {

@@ -1,11 +1,12 @@
-import GroupIcon from 'public/icons/people.svg';
-import ScheduleIcon from 'public/icons/schedule.svg';
+import { type ReactNode } from 'react';
 import ProgramIcon from 'public/icons/books.svg';
 import GroupStudentIcon from 'public/icons/diploma.svg';
-import EmployeeIcon from '/public/icons/employee.svg';
+import GroupIcon from 'public/icons/people.svg';
+import ScheduleIcon from 'public/icons/schedule.svg';
+
 import EducationYearIcon from '/public/icons/calendar.svg';
+import EmployeeIcon from '/public/icons/employee.svg';
 import StudentIcon from '/public/icons/group.svg';
-import { type ReactNode } from 'react';
 
 interface ITabItem {
   name: string;

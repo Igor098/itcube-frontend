@@ -1,6 +1,7 @@
+import { type Metadata } from 'next';
+
 import Footer from '@/widgets/footer';
 import { Header } from '@/widgets/header';
-import { type Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'IT Куб | Главная',

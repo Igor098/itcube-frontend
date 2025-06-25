@@ -1,8 +1,8 @@
+import { clsx } from 'clsx';
 import LogoIcon from 'public/logo.svg';
 import WhiteLogoIcon from 'public/white-logo.svg';
 
 import styles from './styles.module.scss';
-import { clsx } from 'clsx';
 
 type LogoColor = 'normal' | 'white';
 
