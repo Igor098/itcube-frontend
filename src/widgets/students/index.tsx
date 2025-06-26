@@ -8,10 +8,9 @@ import {
   type IStudent,
 } from '@/entities/student';
 import { DataTable, type IColumn } from '@/entities/table';
-import { ProgramFilters } from '@/features/program-filters';
 import StudentCreateForm from '@/features/student-create';
 import StudentEditForm from '@/features/student-edit';
-import { useStudentFilters } from '@/features/student-filters';
+import { StudentFilters, useStudentFilters } from '@/features/student-filters';
 import { useAppDispatch, useAppSelector } from '@/shared/lib/hooks';
 import EntityDeleteModal from '@/shared/ui/entity-delete-modal';
 import Modal from '@/shared/ui/modal';
@@ -123,14 +122,14 @@ export default function StudentsTable() {
           onCancel={handleCloseModal}
           entityName="ученика"
           onConfirm={handleDeleteSuccess}
-          entityLabel={`«${selectedStudent.fullName}»`}
+          entityLabel={`${selectedStudent.fullName}`}
         />
       )}
-      <ProgramFilters
+      <StudentFilters
         onAddClick={() => handleAdd()}
         search={search}
         values={values}
-        setDurationHours={setAge}
+        setAge={setAge}
         setSearch={setSearch}
       />
       {isLoading ? (

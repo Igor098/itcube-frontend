@@ -4,20 +4,22 @@ $weight-regular:   400;
 $weight-medium:    500;
 $weight-semibold:  600;
 
-$size-xs:          14px;
-$size-base:        16px;
-$size-md:          20px;
+$size-xs:   14px;
+$size-sm:   16px;
+$size-md:   20px;
+$size-lg:   24px;
 
-$lh-100:           1;
-$lh-130:           1.3;
-$lh-150:           1.5;
+$lh-100:    1;
+$lh-130:    1.3;
+$lh-150:    1.5;
 
-$font-body:        normal #{$weight-regular}   #{$size-base}/#{$lh-150} #{$font-family-inter}; // 16 / 150%
-$font-heading:     normal #{$weight-semibold}  #{$size-md}/#{$lh-150}   #{$font-family-inter}; // 20 / 150%
-$font-subheading:  normal #{$weight-medium}    #{$size-md}/#{$lh-150}   #{$font-family-inter}; // 20 / 150%
-
-$font-input:       normal #{$weight-medium}    #{$size-base}/#{$lh-100} #{$font-family-inter}; // 16 / 100%
+$font-body:        normal #{$weight-regular}   #{$size-sm}/#{$lh-150} #{$font-family-inter}; // 16 / 150%
+$font-heading:     normal #{$weight-semibold}  #{$size-md}/#{$lh-150} #{$font-family-inter}; // 20 / 150%
+$font-heading-sm:  normal #{$weight-semibold}  #{$size-sm}/#{$lh-150} #{$font-family-inter}; // 16 / 150%
+$font-subheading:  normal #{$weight-medium}    #{$size-md}/#{$lh-150} #{$font-family-inter}; // 20 / 150%
+$font-input:       normal #{$weight-medium}    #{$size-sm}/#{$lh-100} #{$font-family-inter}; // 16 / 100%
+$font-input-lg:    normal #{$weight-medium}    #{$size-md}/#{$lh-100} #{$font-family-inter}; // 20 / 100%
 $font-button:      $font-input;
-$font-button-lg:   normal #{$weight-semibold}  #{$size-md}/#{$lh-100}   #{$font-family-inter}; // 20 / 100%
-
-$font-caption:     normal #{$weight-semibold}  #{$size-xs}/#{$lh-130}   #{$font-family-inter};
+$font-button-lg:   normal #{$weight-semibold}  #{$size-md}/#{$lh-100} #{$font-family-inter}; // 20 / 100%
+$font-caption:     normal #{$weight-semibold}  #{$size-xs}/#{$lh-130} #{$font-family-inter}; // 14 / 130%
+$font-form-title:  normal #{$weight-semibold}  #{$size-lg}/#{$lh-100} #{$font-family-inter}; // 24 / 100%

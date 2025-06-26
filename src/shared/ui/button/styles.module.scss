@@ -8,7 +8,6 @@
   gap: 0.5rem;
   text-transform: none;
   cursor: pointer;
-  font-weight: 600;
   border-radius: 0.5rem;
   transition: background-color 0.2s ease-in-out;
 
@@ -38,18 +37,18 @@
   &_size {
     &__large {
       padding: 1.25rem 2rem;
-      font-size: 20px;
+      font: $font-button-lg;
       border-radius: 1rem;
     }
 
     &__medium {
       padding: 0.75rem 1rem;
-      font-size: 20px;
+      font: $font-button-lg;
     }
 
     &__small {
-      padding: 0.5rem 0.75rem;
-      font-size: 16px;
+      padding: 0.75rem 0.75rem;
+      font: $font-button;
     }
   }
 

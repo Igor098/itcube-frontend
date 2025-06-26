@@ -8,12 +8,11 @@
 }
 
 .picker {
-  font: $font-regular;
+  font: $font-body;
 }
 
 .label {
-  font: $font-medium;
-  font-size: 1rem;
+  font: $font-input;
   color: $gray-500;
 }
 
@@ -60,15 +59,13 @@
   background-color: $gray-50;
 }
 
-/* Выбранный день */
 .react-datepicker__day--selected,
 .react-datepicker__day--keyboard-selected {
   background-color: $color-main;
   color: $color-white;
 }
 
-/* Сегодняшний день */
 .react-datepicker__day--today {
-  font: $font-semibold;
+  font: $font-heading;
   color: $gray-700;
 }

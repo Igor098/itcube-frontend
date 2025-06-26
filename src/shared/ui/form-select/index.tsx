@@ -37,7 +37,11 @@ export default function FormSelect<
 
   return (
     <div className={styles.field}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && (
+        <label className={styles.label} htmlFor={name}>
+          {label}
+        </label>
+      )}
       <Select
         value={value}
         onChange={onChange}

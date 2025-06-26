@@ -6,7 +6,7 @@ import { useController, useFormContext } from 'react-hook-form';
 
 import type { TSize } from '@/shared/constants/types';
 import Input from '@/shared/ui/input';
-import styles from '@/shared/ui/input/styles.module.scss';
+import styles from './styles.module.scss';
 
 interface FormInputProps<TFieldValues extends FieldValues>
   extends InputHTMLAttributes<HTMLInputElement> {
@@ -32,7 +32,11 @@ export default function FormInput<TFieldValues extends FieldValues>({
 
   return (
     <div className={styles.container}>
-      {label && <label htmlFor={name}>{label}</label>}
+      {label && (
+        <label className={styles.label} htmlFor={name}>
+          {label}
+        </label>
+      )}
       <Input
         id={name}
         inputSize={inputSize}

@@ -1,7 +1,14 @@
+@import "@/shared/styles/global";
+
 .field {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.75rem;
+}
+
+.label {
+  font: $font-input;
+  color: $color-text;
 }

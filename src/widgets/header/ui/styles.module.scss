@@ -21,7 +21,7 @@
 
 .link {
   text-decoration: none;
-  font: $font-semibold;
+  font: $font-heading;
   color: $color-text;
   transition: color 0.2s;
 
@@ -32,5 +32,4 @@
 
 .active {
   color: $color-main;
-  font: $font-semibold;
 }

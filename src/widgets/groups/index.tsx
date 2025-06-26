@@ -123,7 +123,7 @@ export default function GroupsTable() {
           onCancel={handleCloseModal}
           entityName="группу"
           onConfirm={handleDeleteSuccess}
-          entityLabel={`«${selectedGroup.name}»`}
+          entityLabel={`${selectedGroup.name}`}
         />
       )}
       <GroupFilters

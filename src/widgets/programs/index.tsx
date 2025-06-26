@@ -130,7 +130,7 @@ export default function ProgramsTable() {
           onCancel={handleCloseModal}
           entityName="программу"
           onConfirm={handleDeleteSuccess}
-          entityLabel={`«${selectedProgram.name}»`}
+          entityLabel={`${selectedProgram.name}`}
         />
       )}
       <ProgramFilters
