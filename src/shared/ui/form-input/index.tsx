@@ -6,6 +6,7 @@ import { useController, useFormContext } from 'react-hook-form';
 
 import type { TSize } from '@/shared/constants/types';
 import Input from '@/shared/ui/input';
+
 import styles from './styles.module.scss';
 
 interface FormInputProps<TFieldValues extends FieldValues>
