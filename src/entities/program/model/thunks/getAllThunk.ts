@@ -1,12 +1,13 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 
 import { getAllProgramsApi } from '../../api/getPrograms';
+import { type IProgramFilter } from '../filter';
 
 export const getAllProgramsThunk = createAsyncThunk(
   'admin/programs',
-  async (_, { rejectWithValue }) => {
+  async (filters: IProgramFilter, { rejectWithValue }) => {
     try {
-      return await getAllProgramsApi();
+      return await getAllProgramsApi(filters);
     } catch (error) {
       return rejectWithValue(`Неверные учетные данные. Ошибка: ${error}`);
     }

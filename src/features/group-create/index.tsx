@@ -40,7 +40,7 @@ export function GroupCreateForm({ onCancel, onSuccess }: GroupCreateFormProps) {
   useEffect(() => {
     dispatch(getAllTeachersThunk());
     dispatch(getAllSchoolYearsThunk());
-    dispatch(getAllProgramsThunk());
+    dispatch(getAllProgramsThunk({ durationHours: undefined, q: '' }));
   }, [dispatch]);
 
   const teachersOptions = useMemo(

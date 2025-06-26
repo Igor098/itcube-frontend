@@ -31,7 +31,7 @@ export default function FormInput<TFieldValues extends FieldValues>({
   } = useController({ name, control });
 
   return (
-    <div className={styles.contaiter}>
+    <div className={styles.container}>
       {label && <label htmlFor={name}>{label}</label>}
       <Input
         id={name}

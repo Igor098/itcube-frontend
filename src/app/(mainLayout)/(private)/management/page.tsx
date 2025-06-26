@@ -2,6 +2,7 @@ import { TABS } from '@/shared/constants/tabs';
 import Panel from '@/shared/ui/panel';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 import GroupsTable from '@/widgets/groups';
+import ProgramsTable from '@/widgets/programs';
 
 import styles from './styles.module.scss';
 
@@ -26,7 +27,7 @@ export default function Page() {
             <GroupsTable />
           </TabsContent>
           <TabsContent value={'programs'}>
-            <h1>Программы</h1>
+            <ProgramsTable />
           </TabsContent>
           <TabsContent value={'employees'}>
             <h1>Сотрудники</h1>

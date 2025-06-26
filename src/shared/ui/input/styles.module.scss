@@ -1,4 +1,5 @@
 .container {
+  width: 100%;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -6,6 +7,7 @@
 
 .wrapper {
   position: relative;
+  width: 100%;
   display: flex;
   justify-items: center;
   gap: 1rem;
@@ -17,12 +19,24 @@
   &_size {
     &__small {
       font-size: 1rem;
-      padding: 0.5rem 1rem 0.5rem 3rem;
+      padding: 0.5rem 1rem;
     }
 
     &__large {
       font-size: 1.25rem;
-      padding: 0.75rem 1rem 0.75rem 4rem;
+      padding: 0.75rem 1rem;
+    }
+  }
+
+  &_small {
+    &__padding {
+      padding: 0.5rem 1rem 0.5rem 3rem;
+    }
+  }
+
+  &_large {
+    &__padding {
+      padding: 0.75rem 1rem  0.75rem 4rem;
     }
   }
 

@@ -31,6 +31,8 @@ const Input = forwardRef<HTMLInputElement, IProps>(
         className={clsx(
           styles.wrapper,
           styles[`wrapper_size__${inputSize}`],
+          leftIcon && inputSize === 'small' && styles['wrapper_small__padding'],
+          leftIcon && inputSize === 'large' && styles['wrapper_large__padding'],
           error && styles.wrapper_error,
           className,
         )}

@@ -10,3 +10,8 @@ export interface IAppRoute {
   isPrivate: boolean;
   roles?: TUserRole[];
 }
+
+export interface ICreateFormProps {
+  onSuccess: () => void;
+  onCancel: () => void;
+}

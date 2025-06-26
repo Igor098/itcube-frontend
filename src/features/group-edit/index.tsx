@@ -48,7 +48,7 @@ export function GroupEditForm({
   useEffect(() => {
     dispatch(getAllTeachersThunk());
     dispatch(getAllSchoolYearsThunk());
-    dispatch(getAllProgramsThunk());
+    dispatch(getAllProgramsThunk({ durationHours: undefined, q: '' }));
   }, [dispatch]);
 
   const teachersOptions = useMemo(

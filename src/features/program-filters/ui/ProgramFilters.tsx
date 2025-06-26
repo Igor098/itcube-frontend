@@ -1,37 +1,41 @@
-import { type IGroupFilter } from '@/entities/group';
+import { type IProgramFilter } from '@/entities/program';
 import Button from '@/shared/ui/button';
 import Input from '@/shared/ui/input';
 import Select, { type IOption } from '@/shared/ui/select';
 
 import styles from './styles.module.scss';
 
-interface IGroupFilterProps {
-  values: IGroupFilter;
+interface IProgramFilterProps {
+  values: IProgramFilter;
   search: string;
   setSearch: (q: string) => void;
-  setIsActive: (val: boolean | undefined) => void;
+  setDurationHours: (val: number | undefined) => void;
   onAddClick: () => void;
 }
 
-export function GroupFilters({
+export function ProgramFilters({
   onAddClick,
   search,
-  setIsActive,
+  setDurationHours,
   setSearch,
   values,
-}: IGroupFilterProps) {
-  const statusOptions: IOption<boolean | undefined>[] = [
+}: IProgramFilterProps) {
+  const statusOptions: IOption<number | undefined>[] = [
     {
       label: 'Все',
       value: undefined,
     },
     {
-      label: 'Активные',
-      value: true,
+      label: '136 часов',
+      value: 136,
     },
     {
-      label: 'Архивные',
-      value: false,
+      label: '68 часов',
+      value: 68,
+    },
+    {
+      label: '44 часа',
+      value: 44,
     },
   ];
 
@@ -45,8 +49,8 @@ export function GroupFilters({
         inputSize="small"
       />
       <Select
-        value={values.isActive}
-        onChange={setIsActive}
+        value={values.durationHours}
+        onChange={setDurationHours}
         options={statusOptions}
         selectSize="small"
       />
