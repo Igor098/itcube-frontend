@@ -1,4 +1,5 @@
 import { FormProvider, useForm } from 'react-hook-form';
+import { format } from 'date-fns';
 
 import {
   createStudentThunk,
@@ -12,7 +13,6 @@ import FormDatePicker from '@/shared/ui/form-datepicker';
 import FormInput from '@/shared/ui/form-input';
 
 import styles from './styles.module.scss';
-import { format } from 'date-fns';
 
 export default function GroupCreateForm({
   onCancel,
