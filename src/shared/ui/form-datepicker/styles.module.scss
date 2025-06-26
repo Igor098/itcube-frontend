@@ -1,0 +1,74 @@
+@import "@/shared/styles/global";
+
+.wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.picker {
+  font: $font-regular;
+}
+
+.label {
+  font: $font-medium;
+  font-size: 1rem;
+  color: $gray-500;
+}
+
+.errorText {
+  font-size: 12px;
+  color: $color-error;
+  margin-top: 4px;
+}
+
+.react-datepicker__current-month,
+.react-datepicker__header {
+  margin-bottom: 12px;
+}
+
+.calendar {
+  background-color: $color-white;
+  border-radius: 0.75rem;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-ease;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.popper {
+  z-index: 40;
+}
+
+.react-datepicker__week {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.react-datepicker__day {
+  flex: 1;
+  height: 2.25rem;
+  line-height: 2.25rem;
+  text-align: center;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease;
+}
+
+.react-datepicker__day:hover {
+  background-color: $gray-50;
+}
+
+/* Выбранный день */
+.react-datepicker__day--selected,
+.react-datepicker__day--keyboard-selected {
+  background-color: $color-main;
+  color: $color-white;
+}
+
+/* Сегодняшний день */
+.react-datepicker__day--today {
+  font: $font-semibold;
+  color: $gray-700;
+}

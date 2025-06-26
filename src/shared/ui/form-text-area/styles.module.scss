@@ -1,3 +1,5 @@
+@import "@/shared/styles/global";
+
 .wrapper {
   width: 100%;
   display: flex;
@@ -7,15 +9,15 @@
 
 .label {
   font-size: 1rem;
-  font-weight: 500;
-  color: #333;
+  font: $font-medium;
+  color: $gray-500;
 }
 
 .error {
-  border-color: #f87171;
+  border-color: $color-error;
 }
 
 .errorText {
   font-size: 0.75rem;
-  color: #f87171;
+  color: $color-error;
 }

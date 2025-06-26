@@ -1,5 +1,7 @@
+@import "@/shared/styles/global";
+
 .cell {
   width: auto;
-  font-weight: 400;
+  font: $font-regular;
   padding: 1rem;
 }

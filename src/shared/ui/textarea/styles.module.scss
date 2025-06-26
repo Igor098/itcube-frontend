@@ -1,3 +1,5 @@
+@import "@/shared/styles/global";
+
 .textarea {
   width: 100%;
   min-height: 2.5rem;
@@ -17,16 +19,16 @@
 
   &:focus {
     margin: 0;
-    border: 3px solid #E5E5E5;
+    border: 3px solid $gray-100;
   }
 
   &:disabled {
-    background-color: #f9fafb;
-    color: #9ca3af;
+    background-color: $gray-100;
+    color: $gray-400;
     cursor: not-allowed;
   }
 }
 
 .error {
-  border-color: #f87171 !important;
+  border-color: $color-error;
 }

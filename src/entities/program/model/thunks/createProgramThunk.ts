@@ -9,7 +9,7 @@ export const createProgramsThunk = createAsyncThunk(
     try {
       return await createProgramApi(program);
     } catch (error) {
-      return rejectWithValue(`Не удалось создать программу. Ошибка: ${error}`);
+      return rejectWithValue(`Не удалось создать ученика. Ошибка: ${error}`);
     }
   },
 );

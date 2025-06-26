@@ -5,6 +5,7 @@ import { programsReducer } from '@/entities/program';
 import { schoolYearsReducer } from '@/entities/school-year';
 import { teachersReducer } from '@/entities/teacher';
 import { authReducer } from '@/features/auth';
+import { studentReducer } from '@/entities/student';
 
 export const store = configureStore({
   reducer: {
@@ -13,6 +14,7 @@ export const store = configureStore({
     teacherDetails: teachersReducer,
     programs: programsReducer,
     schoolYears: schoolYearsReducer,
+    students: studentReducer,
   },
 });
 

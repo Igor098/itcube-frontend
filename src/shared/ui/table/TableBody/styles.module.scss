@@ -1,5 +1,7 @@
+@import "@/shared/styles/global";
+
 .body {
   width: 100%;
   text-align: left;
-  font-weight: 400;
+  font: $font-regular;
 }

@@ -1,4 +1,6 @@
+@import "@/shared/styles/global";
+
 .head {
   text-align: left;
-  font-weight: 600;
+  font: $font-semibold;
 }

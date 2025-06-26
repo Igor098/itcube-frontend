@@ -1,3 +1,5 @@
+@import "@/shared/styles/global";
+
 .backdrop {
   position: fixed;
   top: 0;
@@ -7,7 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: $color-overlay;
   z-index: 100;
 }
 
@@ -19,14 +21,14 @@
   flex-direction: column;
   gap: 1.25rem;
   padding: 1.5rem;
-  background-color: #FFFFFF;
+  background-color: $color-bg;
   border-radius: 0.75rem;
-  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.25);
+  box-shadow: $shadow-lg;
 }
 
 .title {
   font-size: 1.25rem;
-  font-weight: 600;
+  font: $font-semibold;
 }
 
 .content {

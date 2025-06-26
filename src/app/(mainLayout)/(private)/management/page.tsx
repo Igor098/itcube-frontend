@@ -3,6 +3,7 @@ import Panel from '@/shared/ui/panel';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/shared/ui/tabs';
 import GroupsTable from '@/widgets/groups';
 import ProgramsTable from '@/widgets/programs';
+import StudentsTable from '@/widgets/students';
 
 import styles from './styles.module.scss';
 
@@ -21,7 +22,7 @@ export default function Page() {
         </Panel>
         <Panel className={styles.content}>
           <TabsContent value={'students'}>
-            <h1>Студенты</h1>
+            <StudentsTable />
           </TabsContent>
           <TabsContent value={'groups'}>
             <GroupsTable />

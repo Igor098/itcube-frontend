@@ -1,6 +1,8 @@
 'use client';
 
 import { createContext, type ReactNode, useContext, useState } from 'react';
+import { registerLocale } from 'react-datepicker';
+import { ru } from 'date-fns/locale';
 
 interface TabsContentType {
   value: string;
@@ -11,6 +13,8 @@ interface IProps {
   defaultValue: string;
   children: ReactNode;
 }
+
+registerLocale('ru', ru);
 
 const TabsContext = createContext<TabsContentType | undefined>(undefined);
 

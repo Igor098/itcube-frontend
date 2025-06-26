@@ -1,3 +1,5 @@
+@import "@/shared/styles/global";
+
 .container {
   width: 100%;
   display: flex;
@@ -11,10 +13,10 @@
   display: flex;
   justify-items: center;
   gap: 1rem;
-  background-color: #FFFFFF;
-  border: 1px solid #E5E5E5;
+  background-color: $color-white;
+  border: 1px solid $gray-100;
   border-radius: 0.5rem;
-  margin: 2px;
+  margin: 3px;
 
   &_size {
     &__small {
@@ -46,7 +48,7 @@
 
     .left_icon, .right_icon {
       path {
-        fill: #1C1C1C;
+        fill: $gray-900;
       }
     }
   }
@@ -54,24 +56,24 @@
   &:not(:has(input:focus)) {
     .left_icon, .right_icon {
       path {
-        fill: #B2B2B2;
+        fill: $gray-300;
       }
     }
   }
 
   &_error {
-    border-color: tomato;
+    border-color: $color-error;
   }
 }
 
 .input {
   background-color: transparent;
   width: 100%;
-  color: #1C1C1C;
+  color: $color-text;
   outline: none;
 
   &::placeholder {
-    color: #B2B2B2;
+    color: $gray-300;
   }
 }
 
@@ -102,6 +104,6 @@
 }
 
 .error {
-  color: tomato;
+  color: $color-error;
   font-size: 0.75rem;
 }

@@ -1,3 +1,5 @@
+@import '@/shared/styles/global';
+
 .container {
   width: 100%;
   padding: 0 1.5rem;
@@ -9,7 +11,7 @@
 
 .tabs {
   flex: 0;
-  background-color: #F3F4F6;
+  background-color: $gray-50;
 }
 
 .content {
