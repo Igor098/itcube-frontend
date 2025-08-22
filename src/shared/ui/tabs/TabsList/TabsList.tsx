@@ -1,13 +1,26 @@
-import { type ReactNode } from 'react';
+import { type HTMLAttributes, type ReactNode } from 'react';
 import { clsx } from 'clsx';
 
 import styles from './styles.module.scss';
 
-interface IProps {
+type IProps = HTMLAttributes<HTMLDivElement> & {
   children: ReactNode;
-  className?: string;
-}
+  orientation?: 'horizontal' | 'vertical';
+};
 
-export function TabsList({ children, className }: IProps) {
-  return <div className={clsx(styles.tabs_list, className)}>{children}</div>;
+export function TabsList({
+  children,
+  className,
+  orientation = 'horizontal',
+}: IProps) {
+  return (
+    <div
+      className={clsx(styles.tabs_list, className)}
+      role="tablist"
+      aria-orientation={orientation}
+      data-orientation={orientation}
+    >
+      {children}
+    </div>
+  );
 }

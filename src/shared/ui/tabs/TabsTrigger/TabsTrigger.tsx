@@ -20,7 +20,7 @@ export function TabsTrigger({
   icon,
   value,
 }: ITabsTriggerProps) {
-  const { setValue, value: active } = useTabsContext();
+  const { groupId, setValue, value: active } = useTabsContext();
 
   return (
     <button
@@ -30,6 +30,11 @@ export function TabsTrigger({
         className,
         active === value && styles.active,
       )}
+      role="tab"
+      id={`${groupId}-tab-${value}`}
+      aria-controls={`${groupId}-panel-${value}`}
+      aria-selected={active === value}
+      tabIndex={active === value ? 0 : -1}
     >
       {icon && <span>{icon}</span>}
       <span>{children}</span>

@@ -8,29 +8,31 @@ import StudentsTable from '@/widgets/students';
 import styles from './styles.module.scss';
 
 export default function Page() {
+  const GROUP_ID = 'management';
+
   return (
     <div className={styles.container}>
-      <Tabs defaultValue={'students'}>
+      <Tabs defaultValue={'students'} groupId={`tab-${GROUP_ID}`}>
         <Panel className={styles.tabs}>
-          <TabsList>
-            {TABS.map((tab, idx) => (
-              <TabsTrigger key={idx} icon={tab.icon} value={tab.value}>
+          <TabsList aria-label="Управление" orientation="vertical">
+            {TABS.map((tab) => (
+              <TabsTrigger key={tab.value} icon={tab.icon} value={tab.value}>
                 {tab.name}
               </TabsTrigger>
             ))}
           </TabsList>
         </Panel>
         <Panel className={styles.content}>
-          <TabsContent value={'students'}>
+          <TabsContent value={'students'} id="students">
             <StudentsTable />
           </TabsContent>
-          <TabsContent value={'groups'}>
+          <TabsContent value={'groups'} id="groups">
             <GroupsTable />
           </TabsContent>
-          <TabsContent value={'programs'}>
+          <TabsContent value={'programs'} id="programs">
             <ProgramsTable />
           </TabsContent>
-          <TabsContent value={'employees'}>
+          <TabsContent value={'employees'} id="employees">
             <h1>Сотрудники</h1>
           </TabsContent>
         </Panel>

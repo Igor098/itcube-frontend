@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 
 import {
   deleteStudentThunk,
@@ -45,45 +45,48 @@ export default function StudentsTable() {
     }
   };
 
-  const handleAdd = () => {
+  const handleAdd = useCallback(() => {
     setSelectedStudent(null);
     setModalMode('add');
-  };
+  }, []);
 
-  const handleEdit = (student: IStudent) => {
+  const handleEdit = useCallback((student: IStudent) => {
     setSelectedStudent(student);
     setModalMode('edit');
-  };
+  }, []);
 
-  const handleDelete = (student: IStudent) => {
+  const handleDelete = useCallback((student: IStudent) => {
     setSelectedStudent(student);
     setModalMode('delete');
-  };
+  }, []);
 
-  const columns: IColumn<IStudent>[] = [
-    {
-      title: 'ФИО ученика',
-      key: 'fullName',
-    },
-    {
-      title: 'Дата рождения',
-      key: 'birthDate',
-    },
-    {
-      title: 'Возраст',
-      key: 'age',
-    },
-    {
-      title: 'Действия',
-      key: 'actions',
-      render: (row) => (
-        <>
-          <button onClick={() => handleEdit(row)}>✏️</button>
-          <button onClick={() => handleDelete(row)}>🗑️</button>
-        </>
-      ),
-    },
-  ];
+  const columns: IColumn<IStudent>[] = useMemo(
+    () => [
+      {
+        title: 'ФИО ученика',
+        key: 'fullName',
+      },
+      {
+        title: 'Дата рождения',
+        key: 'birthDate',
+      },
+      {
+        title: 'Возраст',
+        key: 'age',
+      },
+      {
+        title: 'Действия',
+        key: 'actions',
+        render: (row) => (
+          <>
+            <button onClick={() => handleEdit(row)}>✏️</button>
+            <button onClick={() => handleDelete(row)}>🗑️</button>
+          </>
+        ),
+      },
+    ],
+    [handleDelete, handleEdit],
+  );
 
   useEffect(() => {
     dispatch(getAllStudentsThunk(values));

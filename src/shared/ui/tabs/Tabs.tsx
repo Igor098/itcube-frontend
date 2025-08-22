@@ -1,36 +1,48 @@
 'use client';
 
-import { createContext, type ReactNode, useContext, useState } from 'react';
+import {
+  createContext,
+  type Dispatch,
+  type ReactNode,
+  type SetStateAction,
+  useContext,
+  useId,
+  useMemo,
+  useState,
+} from 'react';
 import { registerLocale } from 'react-datepicker';
 import { ru } from 'date-fns/locale';
 
-interface TabsContentType {
+type TabsContextValue = {
   value: string;
-  setValue: (value: string) => void;
-}
+  setValue: Dispatch<SetStateAction<string>>;
+  groupId: string;
+};
 
-interface IProps {
+type TabsProps = {
   defaultValue: string;
+  groupId?: string;
   children: ReactNode;
-}
+};
 
 registerLocale('ru', ru);
 
-const TabsContext = createContext<TabsContentType | undefined>(undefined);
+const TabsContext = createContext<TabsContextValue | undefined>(undefined);
+TabsContext.displayName = 'TabsContext';
 
-export function Tabs({ children, defaultValue }: IProps) {
+export function Tabs({ children, defaultValue, groupId }: TabsProps) {
+  const generatedId = useId();
   const [value, setValue] = useState(defaultValue);
-  return (
-    <TabsContext.Provider value={{ value, setValue }}>
-      {children}
-    </TabsContext.Provider>
-  );
+
+  const gid = groupId ?? `tabs-${generatedId}`;
+  const ctx = useMemo(() => ({ value, setValue, groupId: gid }), [gid, value]);
+  return <TabsContext.Provider value={ctx}>{children}</TabsContext.Provider>;
 }
 
 export const useTabsContext = () => {
   const context = useContext(TabsContext);
   if (!context) {
-    throw new Error('useTabsContext использоваться только в \<Tabs\>');
+    throw new Error('useTabsContext может использоваться только в \<Tabs\>');
   }
   return context;
 };
