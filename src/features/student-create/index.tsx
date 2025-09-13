@@ -63,7 +63,7 @@ export default function GroupCreateForm({
         />
         {errors.fullName && <p>{errors.fullName.message}</p>}
 
-        <div style={{ display: 'flex', gap: '8px', marginTop: '16px' }}>
+        <div className={styles.button_wrapper}>
           <Button type="submit" size="small">
             Сохранить
           </Button>

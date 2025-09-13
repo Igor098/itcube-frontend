@@ -1,7 +1,9 @@
 import { type IProgramFilter } from '@/entities/program';
 import Button from '@/shared/ui/button';
 import Input from '@/shared/ui/input';
-import Select, { type IOption } from '@/shared/ui/select';
+import Select from '@/shared/ui/select';
+
+import { statusOptions } from '../lib/statusOptions';
 
 import styles from './styles.module.scss';
 
@@ -20,25 +22,6 @@ export function ProgramFilters({
   setSearch,
   values,
 }: IProgramFilterProps) {
-  const statusOptions: IOption<number | undefined>[] = [
-    {
-      label: 'Все',
-      value: undefined,
-    },
-    {
-      label: '136 часов',
-      value: 136,
-    },
-    {
-      label: '68 часов',
-      value: 68,
-    },
-    {
-      label: '44 часа',
-      value: 44,
-    },
-  ];
-
   return (
     <div className={styles.filters}>
       <Input

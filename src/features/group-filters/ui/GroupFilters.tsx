@@ -1,7 +1,9 @@
 import { type IGroupFilter } from '@/entities/group';
 import Button from '@/shared/ui/button';
 import Input from '@/shared/ui/input';
-import Select, { type IOption } from '@/shared/ui/select';
+import Select from '@/shared/ui/select';
+
+import { statusOptions } from '../lib/statusOptions';
 
 import styles from './styles.module.scss';
 
@@ -20,21 +22,6 @@ export function GroupFilters({
   setSearch,
   values,
 }: IGroupFilterProps) {
-  const statusOptions: IOption<boolean | undefined>[] = [
-    {
-      label: 'Все',
-      value: undefined,
-    },
-    {
-      label: 'Активные',
-      value: true,
-    },
-    {
-      label: 'Архивные',
-      value: false,
-    },
-  ];
-
   return (
     <div className={styles.filters}>
       <Input

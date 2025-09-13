@@ -3,6 +3,24 @@ export interface ISchoolYear {
   period: string;
   startDate: string;
   endDate: string;
+  actions: string;
+}
+
+export interface ISchoolYearCreate {
+  period: string;
+  startDate: string | Date;
+  endDate: string | Date;
+}
+
+export interface ISchoolYearUpdateRequest {
+  id: number;
+  data: ISchoolYearCreate;
+}
+
+export interface ISchoolYearForm {
+  schoolYearPeriod: string;
+  schoolYearStartDate: string | Date;
+  schoolYearEndDate: string | Date;
 }
 
 export interface ISchoolYearSlice {
